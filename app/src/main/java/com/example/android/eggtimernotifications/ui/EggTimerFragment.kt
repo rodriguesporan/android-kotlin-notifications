@@ -48,7 +48,6 @@ class EggTimerFragment : Fragment() {
         binding.eggTimerViewModel = viewModel
         binding.lifecycleOwner = this.viewLifecycleOwner
 
-        // TODO: Step 1.7 call create channel
         createChannel(
             getString(R.string.egg_notification_channel_id),
             getString(R.string.egg_notification_channel_name)
@@ -58,7 +57,6 @@ class EggTimerFragment : Fragment() {
     }
 
     private fun createChannel(channelId: String, channelName: String) {
-        // TODO: Step 1.6 START create a channel
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val notificationChannel = NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_LOW)
 
@@ -70,8 +68,6 @@ class EggTimerFragment : Fragment() {
             val notificationManager = requireContext().getSystemService(NotificationManager::class.java)
             notificationManager.createNotificationChannel(notificationChannel)
         }
-        // TODO: Step 1.6 END create a channel
-
     }
 
     companion object {
